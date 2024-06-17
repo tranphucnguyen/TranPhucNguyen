@@ -1,7 +1,3 @@
-# 
-<image src = "./z5547842869215_100c88c50eda855bd7bb2ae81f72b97e.jpg" />
-
-
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).

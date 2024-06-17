@@ -1,28 +1,37 @@
 import React from 'react';
 import { View, FlatList, Text, StyleSheet } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faTwitterSquare, faInstagramSquare, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons';
-// Import các icon cụ thể từ thư viện
+import { faUserGroup, faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 
 interface DataItem {
     id: string;
-    text: string;
-    icon: any; // Kiểu dữ liệu cho icon có thể là bất kỳ kiểu dữ liệu nào phù hợp
+    mainText: string;
+    subText: string;
+    icon: any;
+    date: string;
 }
 
 const MyFlatList = () => {
-    // Mảng dữ liệu gồm 3 item, mỗi item có một icon khác nhau
     const data: DataItem[] = [
-        { id: '1', text: 'Twitter', icon: faTwitterSquare },
-        { id: '2', text: 'Instagram', icon: faInstagramSquare },
-        { id: '3', text: 'Youtube', icon: faYoutubeSquare },
+        { id: '1', mainText: 'Bước 1 Xác định nhu cầu khách hàng', subText: 'Vũ Văn Hoàng sắp đến hạn lúc 01/08/2020', icon: faCircleCheck, date: '2024-06-17' },
+        { id: '2', mainText: 'Bạn có khách hàng mới!', subText: 'Chúc mừng bạn, bạn có khách hàng mới. Hãy mau chóng liên lạc ngay.', icon: faUserGroup, date: '2024-06-16' },
+        { id: '3', mainText: 'Khách hàng được chia sẻ bị trùng', subText: 'Rất tiếc, khách hàng được chia sẻ đã tồn tại trên hệ thống. Vui lòng chia sẻ khách hàng', icon: faUserGroup, date: '2024-06-15' },
+        { id: '4', mainText: 'Khách hàng được thêm bị trùng', subText: 'Rất tiếc, khách hàng được thêm đã tồn tại trên hệ thống.Vui lòng thêm khách hàng', icon: faUserGroup, date: '2024-06-14' },
+        { id: '5', mainText: 'Công việc sắp đến hạn trong hôm nay', subText: 'Bạn có 17 công  việc sắp đến hạn trong hôm nay', icon: faCircleCheck, date: '2024-06-13' },
+        { id: '6', mainText: 'Công việc đã quá hạn', subText: 'Bạn có 17 bị quá hạn. Hãy kiểm tra và lên kế hoạch hoàn thành công việc.', icon: faCircleCheck, date: '2024-06-12' },
     ];
 
-    // Render mỗi item
     const renderItem = ({ item }: { item: DataItem }) => (
-        <View style={styles.item}>
-            <FontAwesomeIcon icon={item.icon} size={24} style={styles.icon} />
-            <Text style={styles.text}>{item.text}</Text>
+        <View style={[
+            styles.item,
+            (item.id === '1' || item.id === '2' || item.id === '4') && styles.itemHighlight
+        ]}>
+            <FontAwesomeIcon icon={item.icon} size={24} style={styles.icon} color="#0052e0" />
+            <View style={styles.textContainer}>
+                <Text style={styles.mainText}>{item.mainText}</Text>
+                <Text style={styles.subText}>{item.subText}</Text>
+                <Text style={styles.date}>{item.date}</Text>
+            </View>
         </View>
     );
 
@@ -48,11 +57,26 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#ccc',
     },
+    itemHighlight: {
+        backgroundColor: '#d0eaff',  // Màu xanh biển nhạt
+    },
     icon: {
         marginRight: 10,
     },
-    text: {
+    textContainer: {
+        flex: 1,
+    },
+    mainText: {
         fontSize: 16,
+        fontWeight: 'bold',
+    },
+    subText: {
+        fontSize: 14,
+        color: 'gray',
+    },
+    date: {
+        fontSize: 12,
+        color: 'darkgray',
     },
 });
 

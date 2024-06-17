@@ -7,7 +7,7 @@ import MyFlatList from '@/components/MyFlatList'; // Import MyFlatList component
 const App = () => (
   <View style={styles.container}>
     <View style={styles.iconContainer}>
-      <FontAwesomeIcon icon={faCheckCircle} size={48} color="green" />
+      <p>Thông báo</p>
     </View>
     <View style={styles.listContainer}>
       <MyFlatList />
