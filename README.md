@@ -1,3 +1,5 @@
+<h1>Trần Phúc Nguyên BIT220123</h1>
+<image src="z5548430972747_fd733730c576ba13a8486ff167fe1d31.jpg" />
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
